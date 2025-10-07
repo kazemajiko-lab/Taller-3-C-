@@ -1,28 +1,28 @@
 #include <iostream>
+#include "PUNTO7.1.h"
 using namespace std;
-//VARIABLE DECLARATION
-int brochaCerda;
-int rodillo;
-int sellador;
-int producto;
-int contBrochas;
-int contRodillo; 
-int contSellador; 
-int contCiclosBrochas; 
-int contCiclosRodillo;
-int contCiclosSellador;
-int contUniBrochas;
-int contUniRodillos;
-int contUniSelladores;
-int precUnitBrochas;
-int precUnitRodillos;
-int precUnitSelladores;
-int totalSinBrochas;
-int totalSinRodillos;
-int totalConBrochas;
-int totalConRodillos;
-int totalSelladores;
-char option;
+void metodoPago()
+{
+    cout << "1. EFECTIVO\n";
+    cout << "2. TARJETA DE CŔEDITO\n";
+    cin >> paymentMethod; cout << "\n";
+    switch (paymentMethod)
+    {
+    case 1:
+        cout << "TIENE UN 7% DE DESCUENTO EN EL TOTAL DE SU FACTURA\n";
+        cout << "TOTAL FACTURA CON DESCUENTO: ";
+        cout << totalComprasCon;
+        break;
+    case 2:
+        cout << "NO TIENE DESCUENTO ADICIONAL\n";
+        cout << "TOTAL FACTURA: ";
+        cout << totalCompras;
+        break;
+    default:
+        cout << "OPCIÓN INVÁLIDA, POR FAVOR VUÉLVALO A INTENTAR\n\n\n";
+        break;
+    }
+}
 void brochas()
 {
     if (contCiclosBrochas > 1)
@@ -86,11 +86,10 @@ void menu()
     {
         contCiclosBrochas++;
         contCiclosRodillo++;
-        cout << "Por favor indique qué producto desea comprar:\n\n";
         cout << "1. Brocha de cerdas\n";
         cout << "2. Rodillo\n";
         cout << "3. Sellador\n";
-        cin >> producto;
+        cout << "Por favor indique qué producto desea comprar: "; cin >> producto;
         switch(producto)
         {
             case 1:
@@ -119,7 +118,7 @@ void menu()
         cout << "Brocha Prec. Unit: "   << precUnitBrochas    <<     "\n";
         cout << "TOTAL SIN DESCUENTO: " << totalSinBrochas    <<     "\n";
         cout << "TOTAL CON DESCUENTO: " << totalConBrochas    <<     "\n";
-        cout << "*****************************************************\n";
+        cout << "*****************************************************\n\n\n";
     }
     if (contUniRodillos!=0)
     {
@@ -127,7 +126,7 @@ void menu()
         cout << "Rodillo Prec. Unit: "  << precUnitRodillos   <<     "\n";
         cout << "TOTAL SIN DESCUENTO: " << totalSinRodillos   <<     "\n";
         cout << "TOTAL CON DESCUENTO: " << totalConRodillos   <<     "\n";
-        cout << "*****************************************************\n";
+        cout << "*****************************************************\n\n\n";
     }
     if (contUniSelladores!=0)
     {
@@ -135,5 +134,10 @@ void menu()
         cout << "Sellador Prec. Unit: " << precUnitSelladores <<     "\n";
         cout << "TOTAL: "               << totalSelladores    << "\n\n\n";
     }
-    
+    totalCompras = totalConBrochas + totalConRodillos + totalSelladores;
+    totalComprasCon = (totalCompras - ((totalCompras * 7)/100));
+    cout << "TOTAL FACTURA: " << totalCompras << "\n";
+    cout << "ELIJA EL MÉTODO DE PAGO: \n";
+    metodoPago();
+    cout << "\n\n\n";
 }
