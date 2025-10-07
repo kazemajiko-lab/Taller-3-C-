@@ -8,19 +8,19 @@ void metodoPago()
     cin >> paymentMethod; cout << "\n";
     switch (paymentMethod)
     {
-    case 1:
-        cout << "TIENE UN 7% DE DESCUENTO EN EL TOTAL DE SU FACTURA\n";
-        cout << "TOTAL FACTURA CON DESCUENTO: ";
-        cout << totalComprasCon;
-        break;
-    case 2:
-        cout << "NO TIENE DESCUENTO ADICIONAL\n";
-        cout << "TOTAL FACTURA: ";
-        cout << totalCompras;
-        break;
-    default:
-        cout << "OPCIÓN INVÁLIDA, POR FAVOR VUÉLVALO A INTENTAR\n\n\n";
-        break;
+        case 1:
+            cout << "TIENE UN 7% DE DESCUENTO EN EL TOTAL DE SU FACTURA\n";
+            cout << "TOTAL FACTURA CON DESCUENTO: ";
+            cout << totalComprasCon;
+            break;
+        case 2:
+            cout << "NO TIENE DESCUENTO ADICIONAL\n";
+            cout << "TOTAL FACTURA: ";
+            cout << totalCompras;
+            break;
+        default:
+            cout << "OPCIÓN INVÁLIDA, POR FAVOR VUÉLVALO A INTENTAR\n\n\n";
+            break;
     }
 }
 void brochas()
@@ -82,6 +82,7 @@ void menu()
     precUnitBrochas =     5000;
     precUnitRodillos =    8000;
     precUnitSelladores = 12000;
+    opcionValida = true;
     do
     {
         contCiclosBrochas++;
@@ -103,9 +104,10 @@ void menu()
                 break;
             default:
                 cout << "Opción inválida, vuélvalo a intentar\n\n";
+                opcionValida = false;
                 break;
         }
-    } while(option=='S');
+    } while(option=='S' || opcionValida == false);
     cout << "*****************************************************\n";
     totalSinBrochas    = contUniBrochas     * precUnitBrochas;
     totalSinRodillos   = contUniRodillos    * precUnitRodillos;

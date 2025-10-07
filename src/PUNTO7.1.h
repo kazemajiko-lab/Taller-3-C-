@@ -24,3 +24,4 @@ int totalCompras;
 int totalComprasCon;
 int paymentMethod;
 char option;
+bool opcionValida;
