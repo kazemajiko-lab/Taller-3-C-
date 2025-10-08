@@ -142,5 +142,4 @@ void menu()
     cout << "ELIJA EL MÉTODO DE PAGO: \n";
     metodoPago();
     cout << "\n\n\n";
-    , //anñadiendo un error apropósito
 }
